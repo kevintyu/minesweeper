@@ -18,7 +18,7 @@ def makeBoard():
     return grid
 
 def showBoard(board):
-    print()
+    print(str(board[0:5]))
 
 def countHiddenCells(matrix):
     print()
@@ -34,6 +34,7 @@ def countAdjacentMines(matrix):
 
 def main():
     print(placeMines())
+    print(showBoard(makeBoard()))
 GRID_SIZE = 5
 MINE_CHANCE = 10
 main()
