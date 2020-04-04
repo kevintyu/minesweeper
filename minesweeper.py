@@ -1,10 +1,12 @@
-#kelvin du
-#101152192
+# kelvin du
+# 101152192
 import random
-'''
 
-'''
+
 def placeMines():
+    """
+    placeMines() -> returns a 2d list that represents a game board
+    """
     grid = [[0 for j in range(GRID_SIZE)] for i in range(GRID_SIZE)]
     for row in range(0, GRID_SIZE):
         for col in range(0, GRID_SIZE):
@@ -15,12 +17,14 @@ def placeMines():
                 grid[row][col] = ""
     return grid
 
+
 def makeBoard():
     grid = [[0 for j in range(GRID_SIZE)] for i in range(GRID_SIZE)]
     for row in range(0, GRID_SIZE):
         for col in range(0, GRID_SIZE):
             grid[row][col] = "#"
     return grid
+
 
 def showBoard(board):
     numRow = ""
@@ -31,31 +35,46 @@ def showBoard(board):
     print(numRow)
     print(header)
 
+
 def countHiddenCells(board):
     unrevealed = 0
-    for row in board:
-        for tile in board:
-            if tile == "#":
+    for row in range(len(board)):
+        for col in range(len(board)):
+            if board[row][col] == "#":
                 unrevealed += 1
     return unrevealed
 
+
 def countAllMines(board):
     mineCount = 0
-    for row in board:
-        for tile in board:
-            if tile == "X":
+    for row in range(len(board)):
+        for col in range(len(board)):
+            if board[row][col] == "X":
                 mineCount += 1
     return mineCount
 
-def isMineAt(board, x, y):
+
+def isMineAt(board, row, col):
+    if board[row][col] == "X":
+        return True
+    else:
+        return False
+
+
+def countAdjacentMines(board, row, col):
     print()
 
-def countAdjacentMines(matrix):
-    print()
+
+def reveal(board):
+
+    return reveal()
+
 
 def main():
     print(placeMines())
     print(showBoard(makeBoard()))
+    print(countHiddenCells(makeBoard()))
+    print(countAllMines(placeMines()))
 
 GRID_SIZE = 5
 MINE_CHANCE = 10
